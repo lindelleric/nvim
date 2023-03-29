@@ -65,19 +65,30 @@
             highlight = "NeoTreeFileName",
           },
           git_status = {
+            -- symbols = {
+            --   -- Change type
+            --   added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+            --   modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+            --   deleted   = "✖",-- this can only be used in the git_status source
+            --   renamed   = "",-- this can only be used in the git_status source
+            --   -- Status type
+            --   untracked = "",
+            --   ignored   = "",
+            --   unstaged  = "",--"",
+            --   staged    = "",
+            --   conflict  = "",
+            -- }
             symbols = {
-              -- Change type
-              added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-              deleted   = "✖",-- this can only be used in the git_status source
-              renamed   = "",-- this can only be used in the git_status source
-              -- Status type
-              untracked = "",
-              ignored   = "",
-              unstaged  = "",--"",
-              staged    = "",
-              conflict  = "",
-            }
+          added = "✚",
+          modified = "",
+          renamed = "",
+          untracked = "U",
+          ignored = "◌",
+          unstaged = "",
+          staged = "S",
+          conflict = "",
+          deleted = "✖"
+        }
           },
         },
         window = {
@@ -182,7 +193,7 @@
               --".null-ls_*",
             },
           },
-          follow_current_file = false, -- This will find and focus the file in the active buffer every
+          follow_current_file = true, -- This will find and focus the file in the active buffer every
                                        -- time the current file is changed while the tree is open.
           group_empty_dirs = false, -- when true, empty folders will be grouped together
           hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree

@@ -110,6 +110,12 @@ vim.cmd("hi @jsx.prop.brace guifg="..c.bright_purple) -- <jsx> {these breaces} <
 vim.cmd("hi @type.enclosingtags guifg="..c.bright_purple) -- <jsx> {these breaces} </jsx>
 vim.cmd("hi @type.identifier guifg="..c.bright_yellow) -- <jsx> {these breaces} </jsx>
 
+-- Stuff for neo-tree
+vim.cmd("hi NeoTreeGitModified guibg=NONE guifg="..c.bright_blue)
+vim.cmd("hi NeoTreeGitUntracked guibg=NONE guifg="..c.bright_green)
+vim.cmd("hi NeoTreeDirectoryName guifg="..c.light2)
+vim.cmd("hi NeoTreeDirectoryIcon guifg="..c.dark4)
+vim.cmd("hi NeoTreeFileName guifg="..c.light2)
 
 vim.cmd("set cursorline")
 vim.cmd("hi CursorLine guibg=#292929")
