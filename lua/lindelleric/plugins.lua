@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
 
   use('mbbill/undotree')
 
+  use('lewis6991/gitsigns.nvim')
+
   -- Give me that tree!
   -- use("nvim-tree/nvim-web-devicons")
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])

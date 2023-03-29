@@ -117,6 +117,12 @@ vim.cmd("hi NeoTreeDirectoryName guifg="..c.light2)
 vim.cmd("hi NeoTreeDirectoryIcon guifg="..c.dark4)
 vim.cmd("hi NeoTreeFileName guifg="..c.light2)
 
+-- Stuff for gitsigns
+vim.cmd("hi GitSignsAdd guibg=NONE guifg="..c.bright_green)
+vim.cmd("hi GitSignsDelete guibg=NONE guifg="..c.bright_red)
+vim.cmd("hi GitSignsChange guibg=NONE guifg="..c.bright_yellow)
+vim.cmd("hi GitSignsUntracked guibg=NONE guifg="..c.bright_green)
+
 vim.cmd("set cursorline")
 vim.cmd("hi CursorLine guibg=#292929")
 vim.cmd("hi CursorLineNr gui=bold guibg=#292929")
