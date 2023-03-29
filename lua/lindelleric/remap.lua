@@ -20,7 +20,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 
-
+-- nvim-tree
+vim.keymap.set("n", "<leader>f", ":Neotree filesystem reveal left<cr>")
 
 -- Set spelling keybinds
 vim.keymap.set("n", "<leader>sv", function()

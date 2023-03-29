@@ -21,9 +21,3 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-
--- Custom rules
-
--- vim.api.nvim_set_hl(0, "@tag", { link = "Include" })
--- vim.api.nvim_set_hl(0, "@include", { link = "Keyword" })
--- vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "Variable" })

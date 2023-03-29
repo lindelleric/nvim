@@ -10,4 +10,3 @@
 (jsx_attribute (jsx_expression 
     ["{" "}"]
     @jsx.prop.brace))
-
