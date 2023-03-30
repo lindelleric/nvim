@@ -122,6 +122,7 @@ vim.cmd("hi GitSignsAdd guibg=NONE guifg="..c.bright_green)
 vim.cmd("hi GitSignsDelete guibg=NONE guifg="..c.bright_red)
 vim.cmd("hi GitSignsChange guibg=NONE guifg="..c.bright_yellow)
 vim.cmd("hi GitSignsUntracked guibg=NONE guifg="..c.bright_green)
+vim.cmd("hi GitSignsCurrentLineBlame guibg=NONE guifg="..c.dark3)
 
 vim.cmd("set cursorline")
 vim.cmd("hi CursorLine guibg=#292929")
