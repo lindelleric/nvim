@@ -40,6 +40,7 @@ require("gruvbox").setup {
   },
 }
 
+-- taken from https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
 local c = {
   dark_brown = "#3b3307",
   dark_green = "#142a03",
