@@ -30,6 +30,8 @@ return require('packer').startup(function(use)
 
   use('lewis6991/gitsigns.nvim')
 
+
+
   -- Give me that tree!
   -- use("nvim-tree/nvim-web-devicons")
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
@@ -37,12 +39,18 @@ return require('packer').startup(function(use)
   use {
     "nvim-neo-tree/neo-tree.nvim",
       branch = "v2.x",
-      requires = { 
+      requires = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
       }
     }
+
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v3.*",
+    requires = 'nvim-tree/nvim-web-devicons'
+  }
 
   use {
     'numToStr/Comment.nvim',

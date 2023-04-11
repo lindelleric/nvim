@@ -23,6 +23,11 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 -- nvim-tree
 vim.keymap.set("n", "<leader>e", ":Neotree reveal<cr>")
 
+-- Bufferline
+vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext <cr>")
+vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev <cr>")
+vim.keymap.set("n", "<Leader>db", ":bdelete <cr>")
+
 -- Set spelling keybinds
 vim.keymap.set("n", "<leader>sv", function()
 	vim.cmd(':set spell')

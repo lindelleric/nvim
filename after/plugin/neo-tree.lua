@@ -187,7 +187,7 @@
               --".gitignored",
             },
             never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-              -- "node_modules",
+              "node_modules",
               ".git" 
             },
             never_show_by_pattern = { -- uses glob style patterns
