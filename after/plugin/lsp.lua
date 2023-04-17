@@ -9,6 +9,14 @@ lsp.ensure_installed({
   'lua_ls',
   'rust_analyzer',
   'pyright',
+  'csharp_ls',
+  'bashls',
+  'clangd',
+  'dockerls',
+  'docker_compose_language_service',
+  'jsonls',
+  'marksman',
+  'yamlls'
 })
 
 -- Fix Undefined global 'vim'
@@ -64,6 +72,7 @@ lsp.on_attach(function(client, bufnr)
 --  end
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  -- vim.keymap.set("n", "gi", vim.lsp.buf.go_to_implementation, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
   vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
