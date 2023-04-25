@@ -30,9 +30,25 @@ lsp.configure('lua_ls', {
     }
 })
 
+lsp.configure('jsonls', {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+})
+-- require('lspconfig').jsonls.setup {
+--   settings = {
+--     json = {
+--       schemas = require('schemastore').json.schemas(),
+--       validate = { enable = true },
+--     },
+--   },
+-- }
+
 lsp.configure('tsserver', { root_dir = root_pattern('.git'), detached = false })
-
-
+lsp.configure('csharp_ls', { root_dir = root_pattern('.git'), detached = false })
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -83,6 +99,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
+
 
 lsp.setup()
 

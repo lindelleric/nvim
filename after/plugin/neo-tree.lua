@@ -112,7 +112,7 @@
             ["s"] = "open_vsplit",
             -- ["S"] = "split_with_window_picker",
             -- ["s"] = "vsplit_with_window_picker",
-            ["t"] = "open_tabnew",
+            -- ["t"] = "open_tabnew",
             -- ["<cr>"] = "open_drop",
             -- ["t"] = "open_tab_drop",
             ["w"] = "open_with_window_picker",
@@ -176,7 +176,7 @@
             hide_gitignored = true,
             hide_hidden = true, -- only works on Windows for hidden files/directories
             hide_by_name = {
-              -- "node_modules",
+              "node_modules",
               -- ".git" 
             },
             hide_by_pattern = { -- uses glob style patterns
@@ -187,7 +187,7 @@
               --".gitignored",
             },
             never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-              "node_modules",
+              -- "node_modules",
               ".git" 
             },
             never_show_by_pattern = { -- uses glob style patterns
