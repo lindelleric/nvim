@@ -32,6 +32,8 @@ vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext <cr>")
 vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev <cr>")
 vim.keymap.set("n", "<Leader>db", ":bdelete <cr>")
 
+
+
 -- Set spelling keybinds
 vim.keymap.set("n", "<leader>sv", function()
 	vim.cmd(':set spell')

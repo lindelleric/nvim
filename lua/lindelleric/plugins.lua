@@ -38,6 +38,8 @@ return require('packer').startup(function(use)
     config = function() require("nvim-autopairs").setup {} end
   }
 
+  use 'tpope/vim-surround'
+
   -- Give me that tree!
   -- use("nvim-tree/nvim-web-devicons")
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
