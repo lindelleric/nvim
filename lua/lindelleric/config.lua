@@ -18,4 +18,6 @@ vim.cmd(':set smartcase')
 vim.cmd(':set incsearch')
 
 
-vim.cmd('set termguicolors')
+vim.cmd(':set termguicolors')
+
+vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
