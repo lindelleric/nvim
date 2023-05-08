@@ -40,6 +40,31 @@ require("gruvbox").setup {
   },
 }
 
+local M = {}
+
+
+M.highlight = function(group, options)
+    local guifg = options.fg or "NONE"
+    local guibg = options.bg or "NONE"
+    local guisp = options.sp or "NONE"
+    local gui = options.gui or "NONE"
+    local blend = options.blend or 0
+    local ctermfg = options.ctermfg or "NONE"
+
+    vim.cmd(
+        string.format(
+            "highlight %s guifg=%s ctermfg=%s guibg=%s guisp=%s gui=%s blend=%d",
+            group,
+            guifg,
+            ctermfg,
+            guibg,
+            guisp,
+            gui,
+            blend
+        )
+    )
+end
+
 -- taken from https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
 local c = {
   dark_brown = "#3b3307",
@@ -124,6 +149,13 @@ vim.cmd("hi GitSignsDelete guibg=NONE guifg="..c.bright_red)
 vim.cmd("hi GitSignsChange guibg=NONE guifg="..c.bright_yellow)
 vim.cmd("hi GitSignsUntracked guibg=NONE guifg="..c.bright_green)
 vim.cmd("hi GitSignsCurrentLineBlame guibg=NONE guifg="..c.dark3)
+
+-- Blankline
+M.highlight("IndentBlanklineChar", { fg = c.dark0, gui = "nocombine" })
+-- M.highlight("IndentBlanklineContextChar", { fg = c.dark0, gui = "nocombine" })
+-- M.highlight("IndentBlanklineContextStart", { sp = c.dark0, gui = "underline" })
+-- M.highlight("IndentBlanklineContextSpaceChar", { gui = "nocombine" })
+
 
 vim.cmd("set cursorline")
 vim.cmd("hi CursorLine guibg=#292929")

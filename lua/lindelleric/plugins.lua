@@ -29,8 +29,14 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
 
   use('lewis6991/gitsigns.nvim')
+  use "lukas-reineke/indent-blankline.nvim"
 
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
+  use {
+	"windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
   -- Give me that tree!
   -- use("nvim-tree/nvim-web-devicons")
