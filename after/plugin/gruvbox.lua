@@ -152,10 +152,10 @@ vim.cmd("hi GitSignsCurrentLineBlame guibg=NONE guifg="..c.dark3)
 
 -- Blankline
 M.highlight("IndentBlanklineChar", { fg = c.dark0, gui = "nocombine" })
+M.highlight("IndentBlanklineSpaceChar", { fg = c.dark0, gui = "nocombine" })
 -- M.highlight("IndentBlanklineContextChar", { fg = c.dark0, gui = "nocombine" })
 -- M.highlight("IndentBlanklineContextStart", { sp = c.dark0, gui = "underline" })
 -- M.highlight("IndentBlanklineContextSpaceChar", { gui = "nocombine" })
-
 
 vim.cmd("set cursorline")
 vim.cmd("hi CursorLine guibg=#292929")
