@@ -16,3 +16,12 @@ vim.keymap.set('n', '<leader>ps', function ()
 	builtin.grep_string({ search = vim.fn.input ("Grep > ")})
 end)
 
+vim.keymap.set('n', '<leader>pg', function ()
+	builtin.live_grep()
+end)
+
+vim.keymap.set('n', '<leader>cr', function ()
+    builtin.lsp_references({
+        show_line = false
+    })
+end, { noremap = true, silent = true })
