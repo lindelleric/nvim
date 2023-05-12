@@ -25,3 +25,16 @@ vim.keymap.set('n', '<leader>cr', function ()
         show_line = false
     })
 end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>ct', function ()
+    builtin.lsp_type_definitions()
+end)
+
+vim.keymap.set('n', '<leader>cd', function ()
+    builtin.lsp_definitions()
+end)
+
+vim.keymap.set('n', '<leader>ci', function ()
+    builtin.lsp_implementations()
+end)
+
