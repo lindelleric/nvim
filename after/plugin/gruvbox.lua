@@ -153,7 +153,7 @@ vim.cmd("hi GitSignsCurrentLineBlame guibg=NONE guifg="..c.dark3)
 -- Blankline
 M.highlight("IndentBlanklineChar", { fg = c.dark0, gui = "nocombine" })
 M.highlight("IndentBlanklineSpaceChar", { fg = c.dark0, gui = "nocombine" })
--- M.highlight("IndentBlanklineContextChar", { fg = c.dark0, gui = "nocombine" })
+M.highlight("IndentBlanklineContextChar", { fg = c.dark2, gui = "nocombine" })
 -- M.highlight("IndentBlanklineContextStart", { sp = c.dark0, gui = "underline" })
 -- M.highlight("IndentBlanklineContextSpaceChar", { gui = "nocombine" })
 
