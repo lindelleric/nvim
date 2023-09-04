@@ -59,23 +59,66 @@ require('gitsigns').setup {
       vim.schedule(function() gs.prev_hunk() end)
       return '<Ignore>'
     end, {expr=true})
+    
+    map('n', '<leader>b', function() open_commit(gs.current_line_blame.abbrev_sha) end);
 
     -- Actions
     -- map('n', '<leader>hs', gs.stage_hunk)
-    -- map('n', '<leader>hr', gs.reset_hunk)
+    map('n', '<leader>ghr', gs.reset_hunk)
     -- map('v', '<leader>hs', function() gs.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end)
     -- map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end)
     -- map('n', '<leader>hS', gs.stage_buffer)
     -- map('n', '<leader>hu', gs.undo_stage_hunk)
     -- map('n', '<leader>hR', gs.reset_buffer)
-    -- map('n', '<leader>hp', gs.preview_hunk)
-    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+    map('n', '<leader>ghp', gs.preview_hunk)
+    -- map('n', '<leader>hb', function() gs.blame_line{full=true} end)
     -- map('n', '<leader>tb', gs.toggle_current_line_blame)
-    map('n', '<leader>gd', gs.diffthis)
-    map('n', '<leader>gD', function() gs.diffthis('~') end)
+    -- map('n', '<leader>gd', gs.diffthis)
+    -- map('n', '<leader>gD', function() gs.diffthis('~') end)
     -- map('n', '<leader>td', gs.toggle_deleted)
 
     -- Text object
     -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
 }
+
+function open_commit(hash) 
+    local current_buffer = vim.fn.expand("%:p:h")
+    local repo_url = vim.fn.system("git -C " .. current_buffer .. " config --get remote.origin.url")
+
+    if repo_url:len() == 0 then
+        return
+    end
+
+    local gh = parse_gh_remote(repo_url)
+    if gh == nil then
+        print("Error parsing GitHub remote URL")
+        vim.g.openingh = false
+        return
+    end
+
+    parsed_repo_url = string.format("http://%s/%s/%s", gh.host, gh.user_or_org, gh.reponame)
+
+    io.popen(parsed_repo_url .. '/commit/' .. hash)
+end
+
+-- returns a table with the host, user/org and the reponame given a github remote url
+-- nil is returned when the url cannot be parsed
+function parse_gh_remote(url)
+  -- 3 capture groups for host, org/user and repo. whitespace is trimmed
+  -- when cloning with http://, gh redirects to https://, but remote stays http
+  local http = { string.find(url, "https?://([^/]*)/([^/]*)/([^%s/]*)") }
+  -- ssh url can be of type:
+  -- git@some.github.com:user_or_org/reponame.git
+  -- ssh://git@some.github.com/user_or_org/reponame.git
+  -- .* is used for ssh:// since lua matching doesn't support optional groups, only chars
+  local ssh = { string.find(url, ".*git@(.*)[:/]([^/]*)/([^%s/]*)") }
+
+  local matches = http[1] == nil and ssh or http
+  if matches[1] == nil then
+    return nil
+  end
+
+  local _, _, host, user_or_org, reponame = unpack(matches)
+  return { host = host, user_or_org = user_or_org, reponame = string.gsub(reponame, ".git", "") }
+end
