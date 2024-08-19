@@ -1,0 +1,20 @@
+-- require('neorg').setup {
+--     load = {
+--         ["core.defaults"] = {},
+--         ["core.concealer"] = {
+--             config = {
+--                 icon_preset = "diamond",
+--                 -- folds = false
+--                 -- foldlevelstart = 99
+--             }
+--         },
+--         ["core.dirman"] = {
+--             config = {
+--                 workspaces = {
+--                     stud = "/mnt/data/stud",
+--                 },
+--                 default_workspace = "stud"
+--             }
+--         }
+--     }
+-- }

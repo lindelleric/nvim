@@ -17,6 +17,9 @@ vim.cmd(':set ignorecase')
 vim.cmd(':set smartcase')
 vim.cmd(':set incsearch')
 
+-- Don't start with all the folds folded 
+-- Used most for norg
+vim.cmd(':set foldlevelstart=99')
 
 vim.cmd(':set termguicolors')
 

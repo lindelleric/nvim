@@ -1,69 +1,4 @@
-local colors = require "gruvbox.palette"
-
-require("gruvbox").setup {
-  undercurl = true,
-  underline = true,
-  bold = true,
-  italic = {
-    strings = true,
-    comments = true,
-    operators = false,
-    folds = true,
-  },
-  strikethrough = true,
-  invert_selection = false,
-  invert_signs = false,
-  invert_tabline = false,
-  invert_intend_guides = false,
-  inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "hard", -- can be "hard", "soft" or empty string
-  overrides = {
-    -- SignColumn = { bg = colors.dark0_hard },
-    -- DiffAdd = { bg = colors.dark0_hard, fg = colors.bright_green, reverse = false },
-    -- DiffChange = { bg = colors.dark0_hard, fg = colors.bright_yellow, reverse = false },
-    -- DiffRemoved = { bg = colors.dark0_hard, fg = colors.bright_red, reverse = true },
-    -- -- DiffDelete = { bg = colors.dark0_hard, fg = colors.bright_red, reverse = true },
-    -- CocCursorRange = { bg = colors.neutral_purple, fg = colors.light1 },
-    -- -- CocErrorLine = { bg = colors.dark0_hard, fg = colors.bright_red },
-    -- CocDiagnosticsError = { bg = colors.dark0_hard, fg = colors.bright_red },
-    -- CocDiagnosticsHint = { bg = colors.dark0_hard, fg = colors.bright_red },
-    -- CocDiagnosticsWarning = { bg = colors.dark0_hard, fg = colors.bright_orange },
-    -- CocDiagnosticsInfo = { bg = colors.dark0_hard, fg = colors.bright_blue },
-    -- -- ColorColumn = { bg = colors.dark0_hard },
-    -- FgCocHintSignBgSignColumn = { bg = colors.dark1, fg = colors.bright_blue },
-    -- Pmenu = { bg = colors.dark0_hard, fg = "white" },
-    Comment = { italic = true }, -- popup menu colors
-    -- Search = { bg = colors.neutral_purple, fg = colors.light1 }, -- search string highlight color
-    NonText = { fg = colors.dark1 }, -- mask ~ on empty lines
-    -- CursorLineNr = { bold = true }, -- make relativenumber bol
-    SpellBad = { bold = true, undercurl = true }, -- misspelled words
-  },
-}
-
-local M = {}
-
-
-M.highlight = function(group, options)
-    local guifg = options.fg or "NONE"
-    local guibg = options.bg or "NONE"
-    local guisp = options.sp or "NONE"
-    local gui = options.gui or "NONE"
-    local blend = options.blend or 0
-    local ctermfg = options.ctermfg or "NONE"
-
-    vim.cmd(
-        string.format(
-            "highlight %s guifg=%s ctermfg=%s guibg=%s guisp=%s gui=%s blend=%d",
-            group,
-            guifg,
-            ctermfg,
-            guibg,
-            guisp,
-            gui,
-            blend
-        )
-    )
-end
+-- local colors = require "gruvbox.palette"
 
 -- taken from https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
 local c = {
@@ -113,6 +48,74 @@ local c = {
   gray = "#928374",
 }
 
+require("gruvbox").setup {
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = {
+    strings = true,
+    comments = true,
+    operators = false,
+    folds = true,
+  },
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "hard", -- can be "hard", "soft" or empty string
+  overrides = {
+    -- SignColumn = { bg = colors.dark0_hard },
+    -- DiffAdd = { bg = colors.dark0_hard, fg = colors.bright_green, reverse = false },
+    -- DiffChange = { bg = colors.dark0_hard, fg = colors.bright_yellow, reverse = false },
+    -- DiffRemoved = { bg = colors.dark0_hard, fg = colors.bright_red, reverse = true },
+    -- -- DiffDelete = { bg = colors.dark0_hard, fg = colors.bright_red, reverse = true },
+    -- CocCursorRange = { bg = colors.neutral_purple, fg = colors.light1 },
+    -- -- CocErrorLine = { bg = colors.dark0_hard, fg = colors.bright_red },
+    -- CocDiagnosticsError = { bg = colors.dark0_hard, fg = colors.bright_red },
+    -- CocDiagnosticsHint = { bg = colors.dark0_hard, fg = colors.bright_red },
+    -- CocDiagnosticsWarning = { bg = colors.dark0_hard, fg = colors.bright_orange },
+    -- CocDiagnosticsInfo = { bg = colors.dark0_hard, fg = colors.bright_blue },
+    -- -- ColorColumn = { bg = colors.dark0_hard },
+    -- FgCocHintSignBgSignColumn = { bg = colors.dark1, fg = colors.bright_blue },
+    -- Pmenu = { bg = colors.dark0_hard, fg = "white" },
+    Comment = { italic = true }, -- popup menu colors
+    -- Search = { bg = colors.neutral_purple, fg = colors.light1 }, -- search string highlight color
+
+    -- uncomment?
+    NonText = { fg = c.dark1 }, -- mask ~ on empty lines
+
+    -- CursorLineNr = { bold = true }, -- make relativenumber bol
+    SpellBad = { bold = true, undercurl = true }, -- misspelled words
+  },
+}
+
+local M = {}
+
+
+M.highlight = function(group, options)
+    local guifg = options.fg or "NONE"
+    local guibg = options.bg or "NONE"
+    local guisp = options.sp or "NONE"
+    local gui = options.gui or "NONE"
+    local blend = options.blend or 0
+    local ctermfg = options.ctermfg or "NONE"
+
+    vim.cmd(
+        string.format(
+            "highlight %s guifg=%s ctermfg=%s guibg=%s guisp=%s gui=%s blend=%d",
+            group,
+            guifg,
+            ctermfg,
+            guibg,
+            guisp,
+            gui,
+            blend
+        )
+    )
+end
+
 vim.cmd("colorscheme gruvbox")
 -- Custom stuff for gruvbox
 vim.cmd("hi @include guifg="..c.bright_red) -- Import statements
@@ -151,9 +154,9 @@ vim.cmd("hi GitSignsUntracked guibg=NONE guifg="..c.bright_green)
 vim.cmd("hi GitSignsCurrentLineBlame guibg=NONE guifg="..c.dark3)
 
 -- Blankline
-M.highlight("IndentBlanklineChar", { fg = c.dark0, gui = "nocombine" })
-M.highlight("IndentBlanklineSpaceChar", { fg = c.dark0, gui = "nocombine" })
-M.highlight("IndentBlanklineContextChar", { fg = c.dark2, gui = "nocombine" })
+M.highlight("IblIndent", { fg = c.dark0, gui = "nocombine" })
+M.highlight("IblWhitespace", { fg = c.dark0, gui = "nocombine" })
+M.highlight("IblScope", { fg = c.dark2, gui = "nocombine" })
 -- M.highlight("IndentBlanklineContextStart", { sp = c.dark0, gui = "underline" })
 -- M.highlight("IndentBlanklineContextSpaceChar", { gui = "nocombine" })
 

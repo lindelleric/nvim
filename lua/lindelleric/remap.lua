@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-
+vim.g.maplocalleader = ","
 
 vim.keymap.set({"n", "v"}, "n", "gj")
 vim.keymap.set({"n", "v"}, "e", "gk")
@@ -10,16 +10,20 @@ vim.keymap.set({"n"}, "l", "e")
 
 -- -- windows movements
 vim.keymap.set("n", "<A-h>", "<C-w>h")
-vim.keymap.set("n", "<A-n>", "<C-w>j")
-vim.keymap.set("n", "<A-e>", "<C-w>k")
-vim.keymap.set("n", "<A-i>", "<C-w>l")
-
+vim.keymap.set("n", "<A-n>", "<C-w>n")
+vim.keymap.set("n", "<A-e>", "<C-w>e")
+vim.keymap.set("n", "<A-i>", "<C-w>i")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-o>", "<C-o>zz")
+vim.keymap.set("n", "<C-i>", "<C-i>zz")
 vim.keymap.set("n", "k", "nzzzv")
 vim.keymap.set("n", "K", "Nzzzv")
+vim.keymap.set("n", "<leader>k", ":noh<cr>")
 
+-- selects the last pasted text in visual line mode
+vim.keymap.set("n", "gp", "`[V`]")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -30,6 +34,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
+vim.keymap.set("n", "<leader>w", ":wa<cr>")
 
 -- nvim-tree
 vim.keymap.set("n", "<leader>f", ":Neotree reveal<cr>")

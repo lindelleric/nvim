@@ -32,6 +32,9 @@
           container = {
             enable_character_fade = true
           },
+          symlink_target = {
+              enabled = false,
+          },
           indent = {
             indent_size = 2,
             padding = 1, -- extra padding on left hand side
@@ -93,7 +96,7 @@
         },
         window = {
           position = "left",
-          width = 50,
+          width = 35,
           mapping_options = {
             noremap = true,
             nowait = true,

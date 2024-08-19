@@ -1,7 +1,9 @@
 
+-- local copilotConf = require('./../../after/plugin/copilot.lua')
+--
+
 
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
--- TODO: meh
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -10,7 +12,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
   -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
@@ -34,6 +36,12 @@ return require('packer').startup(function(use)
   use('lewis6991/gitsigns.nvim')
   use "lukas-reineke/indent-blankline.nvim"
 
+  use('luckasRanarison/tailwind-tools.nvim',{
+      dependencies = {
+          'nvim-treesitter/nvim-treesitter',
+      }
+  })
+
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   use {
@@ -43,8 +51,76 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-surround'
 
-  use 'axkirillov/hbac.nvim'
+  -- use 'axkirillov/hbac.nvim'
   use 'famiu/bufdelete.nvim'
+
+  use({
+    "stevearc/oil.nvim"
+  })
+
+  -- use {
+  --     "zbirenbaum/copilot.lua",
+  --     cmd = "Copilot",
+  --     event = "InsertEnter",
+  --     config = function()
+  --         require("copilot").setup({})
+  --     end,
+  --
+  --     -- config = function()
+  --     --     require("copilot").setup({
+  --     --         -- panel = {
+  --     --         --     enabled = true,
+  --     --         --     auto_refresh = false,
+  --     --         --     keymap = {
+  --     --         --         jump_prev = "[[",
+  --     --         --         jump_next = "]]",
+  --     --         --         accept = "<CR>",
+  --     --         --         refresh = "gr",
+  --     --         --         open = "<M-CR>"
+  --     --         --     },
+  --     --         --     layout = {
+  --     --         --         position = "bottom", -- | top | left | right
+  --     --         --         ratio = 0.4
+  --     --         --     },
+  --     --         -- },
+  --     --         -- suggestion = {
+  --     --         --     enabled = true,
+  --     --         --     auto_trigger = false,
+  --     --         --     debounce = 75,
+  --     --         --     keymap = {
+  --     --         --         accept = "<M-l>",
+  --     --         --         accept_word = false,
+  --     --         --         accept_line = false,
+  --     --         --         next = "<M-]>",
+  --     --         --         prev = "<M-[>",
+  --     --         --         dismiss = "<C-]>",
+  --     --         --     },
+  --     --         -- },
+  --     --         -- filetypes = {
+  --     --         --     yaml = false,
+  --     --         --     markdown = false,
+  --     --         --     help = false,
+  --     --         --     gitcommit = false,
+  --     --         --     gitrebase = false,
+  --     --         --     hgcommit = false,
+  --     --         --     svn = false,
+  --     --         --     cvs = false,
+  --     --         --     ["."] = false,
+  --     --         -- },
+  --     --         -- copilot_node_command = 'node', -- Node.js version must be > 18.x
+  --     --         -- server_opts_overrides = {},
+  --     --     })
+  --     -- end,
+  -- }
+  use'github/copilot.vim'
+
+  use('CopilotC-Nvim/CopilotChat.nvim', {
+      branch = 'canary',
+      dependencies = {
+          'nvim-lua/plenary.nvim',
+          'zbirenbaum/copilot.lua'
+      }
+  })
 
   -- Give me that tree!
   -- use("nvim-tree/nvim-web-devicons")
@@ -72,6 +148,13 @@ return require('packer').startup(function(use)
   -- }
 
   use {
+    "nvim-neorg/neorg",
+    ft = "norg",
+    -- run = ":Neorg sync-parsers", -- This is the important bit!
+    requires = "nvim-lua/plenary.nvim",
+}
+
+  use {
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
@@ -82,6 +165,17 @@ return require('packer').startup(function(use)
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim"
   }
+
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons"
+  }
+
+
+
+
+
+
 
   use('neovim/nvim-lspconfig')
   use('jose-elias-alvarez/null-ls.nvim')
@@ -110,6 +204,7 @@ return require('packer').startup(function(use)
 	  }
   }
 end)
+
 
 
 

@@ -60,7 +60,8 @@ require('gitsigns').setup {
       return '<Ignore>'
     end, {expr=true})
     
-    map('n', '<leader>b', function() open_commit(gs.current_line_blame.abbrev_sha) end);
+
+    -- map('n', '<leader>b', function() open_commit(gs.current_line_blame.abbrev_sha) end);
 
     -- Actions
     -- map('n', '<leader>hs', gs.stage_hunk)

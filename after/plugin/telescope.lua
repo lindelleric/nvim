@@ -38,3 +38,15 @@ vim.keymap.set('n', '<leader>ci', function ()
     builtin.lsp_implementations()
 end)
 
+vim.keymap.set('n', '<leader>gs', function ()
+    builtin.git_status()
+end)
+
+vim.keymap.set('n', '<leader>pr', function ()
+    builtin.resume();
+end)
+
+vim.keymap.set('n', '<leader>b', function ()
+    builtin.buffers()
+end)
+
