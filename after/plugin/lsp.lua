@@ -7,7 +7,8 @@ require('mason-lspconfig').setup({
     -- Replace the language servers listed here 
     -- with the ones you want to install
     ensure_installed = {
-      'tsserver',
+      'ts_ls',
+      -- 'tsserver',
       'eslint',
       'lua_ls',
       'rust_analyzer',
@@ -20,7 +21,8 @@ require('mason-lspconfig').setup({
       'jsonls',
       'marksman',
       'yamlls',
-      'gopls'
+      'gopls',
+      'typos_lsp'
     },
     handlers = {
       function(server_name)
@@ -81,7 +83,7 @@ lsp.configure('jsonls', {
 --   },
 -- }
 
-lsp.configure('tsserver', { root_dir = root_pattern('.git'), detached = false })
+lsp.configure('ts_ls', { root_dir = root_pattern('.git'), detached = false })
 lsp.configure('csharp_ls', { root_dir = root_pattern('.git'), detached = false })
 lsp.configure('bashls', {
         filetypes = {'bash', 'sh', 'zsh'}

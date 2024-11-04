@@ -22,6 +22,9 @@ vim.keymap.set("n", "k", "nzzzv")
 vim.keymap.set("n", "K", "Nzzzv")
 vim.keymap.set("n", "<leader>k", ":noh<cr>")
 
+vim.keymap.set("n", "<C-n>", "<C-e>")
+vim.keymap.set("n", "<C-e>", "<C-y>")
+
 -- selects the last pasted text in visual line mode
 vim.keymap.set("n", "gp", "`[V`]")
 
